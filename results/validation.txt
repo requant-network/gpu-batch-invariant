@@ -1,0 +1,57 @@
+[PASS] env.device_is_sm120 — NVIDIA GeForce RTX 5060 Ti cc=12.0 driver=13030
+[PASS] env.device_is_rtx5060ti — NVIDIA GeForce RTX 5060 Ti
+[PASS] env.cuda_visible_devices_0 — 0
+[PASS] env.utc_timestamp — 2026-11-19T16:16:29Z
+[PASS] env.sha256_present[cuda/bik.cu]
+[PASS] env.sha256_present[run.py]
+[PASS] env.sha256_present[Makefile]
+[PASS] env.sha256_present[tests/validate_results.py]
+[PASS] env.binary_sha256[selftest]
+[PASS] env.header_gpu_provenance[selftest] — NVIDIA GeForce RTX 5060 Ti cc=12.0 driver=610.43.03 arch=sm_120 CVD=0
+[PASS] env.binary_sha256[measure]
+[PASS] env.header_gpu_provenance[measure] — NVIDIA GeForce RTX 5060 Ti cc=12.0 driver=610.43.03 arch=sm_120 CVD=0
+[PASS] env.binary_sha256[invariant]
+[PASS] env.header_gpu_provenance[invariant] — NVIDIA GeForce RTX 5060 Ti cc=12.0 driver=610.43.03 arch=sm_120 CVD=0
+[PASS] env.binary_sha256[cost]
+[PASS] env.header_gpu_provenance[cost] — NVIDIA GeForce RTX 5060 Ti cc=12.0 driver=610.43.03 arch=sm_120 CVD=0
+[PASS] env.binary_sha256[block]
+[PASS] env.header_gpu_provenance[block] — NVIDIA GeForce RTX 5060 Ti cc=12.0 driver=610.43.03 arch=sm_120 CVD=0
+[PASS] selftest.single_bit_flip_detected
+[PASS] selftest.identical_buffers_pass
+[PASS] selftest.fp16_flip_detected
+[PASS] selftest.bound_checker_accepts_inside
+[PASS] selftest.bound_checker_rejects_outside
+[PASS] selftest.rng_deterministic
+[PASS] selftest.pass
+[PASS] measure.gemm_count_90 — 90
+[PASS] measure.softmax_count_20
+[PASS] measure.rmsnorm_count_10
+[PASS] measure.attn_count_20
+[PASS] measure.m1_self_comparison_zero — 28 records
+[PASS] measure.batch_dependence_observed — 37/140 records differ from batch-1 probe
+[info] cuBLASLt run-to-run nondeterminism at fixed shape: 0 records
+[PASS] invariant.gemm_count_18 — 18
+[PASS] invariant.gemm_all_bitwise_pass
+[PASS] invariant.gemm_all_oracle_bound_pass
+[PASS] invariant.softmax_count_4_all_pass
+[PASS] invariant.rmsnorm_count_2_all_pass
+[PASS] invariant.attn_count_4_all_pass
+[PASS] invariant.oracle_dump_present
+[PASS] negative.std_harness_records_present — 4
+[PASS] negative.targeted_std_fails_acceptance — negative_control_std_gemm:True; negative_control_std_softmax:True
+[PASS] negative.zero_diff_cases_correctly_pass — negative_control_std_gemm:False; negative_control_std_softmax:False
+[PASS] oracle.python_fp64_bitwise_matches_cpp_exact_row — 4096 elements, seed 20261119
+[PASS] oracle.python_sabs_bitwise_matches
+[PASS] oracle.gpu_rows_within_proven_bound — max_err inv=0.000396848 cublas=1.56807e-05
+[PASS] oracle.bound_checker_rejects_perturbation
+[PASS] cost.record_count_28 — 28
+[PASS] cost.positive_medians
+[PASS] cost.boundary_resident
+[PASS] block.record_present
+[PASS] block.invariant_bitwise_replay — 524288 elements, B=1 vs B=7
+[PASS] block.invariant_repeat_deterministic
+[PASS] block.elements_524288
+[info] standard block B=1 vs B=7: diff_fraction=0.355516 max_ulp=32254
+
+52/52 checks passed
+ALL CHECKS PASSED

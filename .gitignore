@@ -1,0 +1,9 @@
+bik
+*.o
+*.exp
+*.lib
+venv/
+__pycache__/
+*.pyc
+run.log
+nohup.out

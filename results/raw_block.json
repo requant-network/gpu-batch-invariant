@@ -1,0 +1,47 @@
+{
+ "mode": "block",
+ "header": {
+  "mode": "block_header",
+  "device": {
+   "name": "NVIDIA GeForce RTX 5060 Ti",
+   "compute_cap": "12.0",
+   "driver_cuda_version": 13030,
+   "sm_count": 36,
+   "global_mem_mib": 15885
+  },
+  "seq": 128,
+  "driver_version": "610.43.03",
+  "arch": "sm_120",
+  "cuda_visible_devices": "0",
+  "gpu_index": 0,
+  "blackwell_sm120_only": true
+ },
+ "record_count": 1,
+ "records": [
+  {
+   "kernel": "block_replay",
+   "seq": 128,
+   "hidden": 4096,
+   "B_a": 1,
+   "B_b": 7,
+   "elements_compared": 524288,
+   "seed": 20261119,
+   "invariant_bitwise_equal": true,
+   "n": 524288,
+   "diff_count": 0,
+   "diff_fraction": 0,
+   "max_ulp": 0,
+   "max_abs": 0,
+   "invariant_repeat_equal": true,
+   "standard_bitwise_equal": false,
+   "standard_diff_count": 186393,
+   "standard_diff_fraction": 0.355516434,
+   "standard_max_ulp": 32254
+  }
+ ],
+ "footer": {
+  "mode": "block_footer"
+ },
+ "binary_sha256": "f7bfa8755e59039e7b0844693cb702883abed616a3100569ace86c8771994fc9",
+ "stderr_tail": ""
+}
