@@ -8,6 +8,9 @@ A synthetic transformer-like block also replayed bitwise within the Tensor
 Core path. Switching from the scalar path to Tensor Cores changed 51–53%
 of that block's output elements.
 
+A [weight-reuse follow-up](TENSOR_REUSE.md) preserved all tested Tensor
+Core output bits and reduced the batch-128 up-projection median by 5.17×.
+
 ## Kernel and replay checks
 
 Each warp computes one 16×16 output tile, taking K tiles in ascending order

@@ -1,0 +1,3 @@
+prior single-tile kernel: 272 SM120 instructions; encoding SHA-256 5a47f67ac050c266d56eabb32ce0e0b59f986a588c6c9ac6a13c929b7f03ab6b
+current single-tile kernel: 272 SM120 instructions; encoding SHA-256 5a47f67ac050c266d56eabb32ce0e0b59f986a588c6c9ac6a13c929b7f03ab6b
+Instruction encodings identical.
