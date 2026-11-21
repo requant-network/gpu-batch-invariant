@@ -1,0 +1,4 @@
+{"mode":"tensor_block_header","device":{"name":"NVIDIA GeForce RTX 5060 Ti","compute_cap":"12.0","driver_cuda_version":13030,"sm_count":36,"global_mem_mib":15885},"seq":128,"hidden":4096,"batch":7}
+{"test":"block_replay","seed":20261119,"n":524288,"finite":true,"first_equal":true,"last_equal":true,"repeat_equal":true,"scalar_comparison":{"n":524288,"diff_count":268796,"diff_fraction":0.512687683,"max_ulp":33437,"max_abs":16}}
+{"test":"block_replay","seed":777,"n":524288,"finite":true,"first_equal":true,"last_equal":true,"repeat_equal":true,"scalar_comparison":{"n":524288,"diff_count":279061,"diff_fraction":0.532266617,"max_ulp":52209,"max_abs":3056}}
+{"mode":"tensor_block_footer","pass":true}

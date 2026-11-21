@@ -1,0 +1,15 @@
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2026 NVIDIA Corporation
+Built on Tue_Jun_09_02:43:40_PM_PDT_2026
+Cuda compilation tools, release 13.3, V13.3.73
+Build cuda_13.3.r13.3/compiler.38244171_0
+e1c8d535994d7436a958335d82de42da8ad3d99a0cbdec97c787993549101328  cuda/bik.cu
+83246a3bc1743c2be8a1fc61619d470667d844af012c7e422851f935feed74e5  bik
+		Function : _Z18gemm_tensor_kernelPK6__halfS1_PS_iii
+        /*0580*/                   HMMA.16816.F32 R20, R12, R28, R20 ;                               /* 0x0000001c0c14723c */
+        /*05b0*/                   HMMA.16816.F32 R16, R12, R26, R16 ;                               /* 0x0000001a0c10723c */
+        /*0650*/                   HMMA.16816.F32 R20, R8, R2, R20 ;                                 /* 0x000000020814723c */
+        /*06b0*/                   HMMA.16816.F32 R16, R8, R12, R16 ;                                /* 0x0000000c0810723c */
+Static HMMA instructions: 10
+name, driver_version, memory.used [MiB], utilization.gpu [%]
+NVIDIA GeForce RTX 5060 Ti, 610.43.03, 279 MiB, 0 %

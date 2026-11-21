@@ -1,0 +1,11 @@
+NVIDIA (R) Compute Sanitizer
+Copyright (c) 2020-2026 NVIDIA Corporation
+Version 2026.2.1.0 (build 38334959) (public-release)
+
+tensor-block
+========= COMPUTE-SANITIZER
+========= ERROR SUMMARY: 0 errors
+
+tensor
+========= COMPUTE-SANITIZER
+========= ERROR SUMMARY: 0 errors

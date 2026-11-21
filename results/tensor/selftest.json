@@ -1,0 +1,1 @@
+{"device":{"name":"NVIDIA GeForce RTX 5060 Ti","compute_cap":"12.0","driver_cuda_version":13030,"sm_count":36,"global_mem_mib":15885},"selftest":{"single_bit_flip_detected":true,"flip_ulp":1,"identical_buffers_pass":true,"fp16_flip_detected":true,"bound_checker_accepts_inside":true,"bound_checker_rejects_outside":true,"rng_deterministic":true,"pass":true}}

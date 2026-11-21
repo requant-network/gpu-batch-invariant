@@ -12,6 +12,12 @@ Standard GPU inference kernels are **not bitwise stable when the same input row 
 
 Cost of determinism (resident median latency): naive fixed-order GEMM **4.1×–27.2× slower** than cuBLASLt (no tensor cores); row kernels (softmax/RMSNorm) and attention with frozen configs are **free or faster at batch 128** (−34%…−43% for rows) and cost +16%…+110% at batch 1.
 
+The [Tensor Core follow-up](TENSOR_CORES.md) measured a fixed-order FP16 GEMM
+and transformer-like block on the same GPU. The GEMM ran 1.38–10.94× faster
+than the scalar path and both Tensor Core paths replayed bitwise across their
+tested batch positions. Changing between the scalar and Tensor Core block
+paths changed 51–53% of output values.
+
 ## What has actually run
 
 Everything below executed on the shared GPU server `me4me` (192.168.0.70), **GPU 0 only** — NVIDIA GeForce RTX 5060 Ti, compute capability 12.0 (SM120), driver 610.43.03, CUDA 13.3 — compiled `-arch=sm_120`, pinned `CUDA_VISIBLE_DEVICES=0`, every GPU run serialized under `flock /tmp/requant-new-studies-gpu.lock`. GPU 1 (CMP 50HX, Turing) was never used. GPU name + compute cap + driver are stamped in **every** results JSON header.
@@ -30,7 +36,7 @@ Raw evidence: `results/run.json` (merged), `results/raw_*.json` (per-mode), `res
 ## Repository layout
 
 ```
-cuda/bik.cu            all kernels + 5 modes (selftest|measure|invariant|cost|block), JSONL out
+cuda/bik.cu            all kernels and JSONL experiment modes
 run.py                 stdlib orchestrator: env metadata, SHA-256 source hashes, --finalize
 tests/validate_results.py  52 machine checks incl. independent Python fp64 oracle
 results/               measured JSON + validation transcript (committed)
@@ -52,7 +58,7 @@ python3 tests/validate_results.py        # exit 0 = 52/52 checks pass
 ## Scope limitations (explicit)
 
 - **Bounded spike**: 3 LLM-inspired shapes (4096×4096, 4096→11008, 11008→4096), seq 128/512, batches ≤128, VRAM < 4 GB. Not a full model, not a serving stack.
-- The invariant GEMM is a **deliberately naive** fixed-order design (32×32 shared tile, scalar fp32 FMA, ascending K, no split-K, batch padded to tile multiple). Its 4–27× overhead is an upper bound for simple designs, **not** the cost of a tuned tensor-core batch-invariant GEMM (future work).
+- The original invariant GEMM uses a 32×32 shared tile, scalar fp32 FMA, ascending K and no split-K. The Tensor Core follow-up measures a separate 16×16 FP16 path on the same card.
 - cuBLASLt findings are specific to CUDA 13.3 / driver 610.43.03 / SM120 heuristics on this device; other libraries, versions or GPUs may switch algorithms differently. Zero-difference cases are reported as valid findings, not forced failures.
 - Attention is a naive tiled score·V path (fp16 I/O, fp32 compute), not FlashAttention; its measured batch-insensitivity here is partly fp16 output rounding absorbing order noise.
 - Two seeds per claim; exactness claims rest on a proven-bound fp64 oracle plus an independent Python re-derivation, not on float tolerance alone.
